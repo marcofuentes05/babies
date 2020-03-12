@@ -1,0 +1,4 @@
+export const BABY_ADDED = 'BABY_ADDED'
+export const EVENT_ADDED = 'EVENT_ADDED'
+export const BABY_CHANGED = 'BABY_CHANGED'
+export const ACTION_DELETED = 'ACTION_DELETED'
