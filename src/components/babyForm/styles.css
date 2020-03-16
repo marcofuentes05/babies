@@ -1,0 +1,25 @@
+.textInput{
+    border-radius: 20px;
+    width: 200px;
+    margin: 30px;
+}
+
+.inputButon{
+    margin: 50px;
+    padding: 25px;
+    background-color: steelblue;
+    border-radius: 10px;
+    
+}
+
+.main{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: rebeccapurple;
+    width: fit-content;
+    border-radius: 20px;
+    margin-left: 40% ;
+    margin-top: 7%;
+    background-position-x: center;
+}

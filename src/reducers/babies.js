@@ -1,12 +1,14 @@
 import * as types from '../types/index.js'
-import {v4 as uuidv4} from  'uuid';
+// import {v4 as uuidv4} from  'uuid';
 
 export const addBaby = (state = [], action) => {
     switch(action.type){
         case types.BABY_ADDED: {
             return [...state, 
             {
-                id: uuidv4(),
+                //Es conveniente que el bebe tenga el ID del tamano de la lista porquenunca vamos a eliminar bebes
+                //Esto no es conveniente en eventos
+                id: state.length,
                 name : action.name,
                 lastName: action.lastName
             }]

@@ -1,7 +1,7 @@
 import {v4 as uuidv4} from 'uuid';
 import * as types from '../types/index.js';
 
-export const addEvent = (state = [], action) => {
+export const delEvents = (state = [], action) => {
     switch(action.type){
         case types.EVENT_ADDED : {
             let d = new Date();
@@ -14,15 +14,12 @@ export const addEvent = (state = [], action) => {
                }
             ]
         }
-        default: {return state}
-    }
-}
-
-export const deleteEvent = (state = [], action) => {
-    switch(action.type){
         case types.ACTION_DELETED : {
-            return 
+            return [
+                ...state.slice(0, action.index),
+                ...state.slice(action.index + 1)
+            ]
         }
-        default : { return state }
+        default: {return state}
     }
 }

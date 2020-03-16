@@ -1,12 +1,19 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import {configureState} from './store.js'
+// import * as actions from './actions/index.js'
+import Babies from './components/babyForm'
+const store = configureState();
+
+store.subscribe(() => console.log(store.getState()))
+
+const date = new Date()
+
 
 const App = () => (
-    <div>
-        <h1>
-            {[1, 2, 3, 4, 5, 6].map(v => <h2> {v * v}</h2>)}
-        </h1>
-    </div>
+    <Provider store = {store}>
+    <Babies/>
+    </Provider>
 )
 
 export default App

@@ -21,7 +21,7 @@ export const selectBaby = (newIndex) => ({
     newIndex
 })
 
-export const deleteAction = (index) => (
+export const deleteEvent = (index) => (
     {
         type : types.ACTION_DELETED,
         index
