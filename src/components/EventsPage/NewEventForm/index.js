@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import './styles.css'
 
 
-const NewEvent = (selected, {onClick}) => {
+const NewEvent = ({selected, onClick}) => {
     const [notas, cambiarNotas] = useState('');
     const [tipo, cambiarTipo] = useState ('')
     return (
@@ -13,8 +13,8 @@ const NewEvent = (selected, {onClick}) => {
             <div className = "tipo">
                 <h2>
                     {'Tipo: '}
-                    <select
-                    onChange = {z => cambiarTipo(z.target.vlaue)}>
+                    <select id = 'tipos'
+                    onChange = {z => cambiarTipo(document.getElementById('tipos').value)}>
                         <option value= "Siesta" >{'Siesta'}</option>
                         <option value="Pacha" >{'Pacha'}</option>
                         <option value="Pecho" >{'Pecho'}</option>
@@ -27,15 +27,17 @@ const NewEvent = (selected, {onClick}) => {
                 <h2>
                     {'Notas: '}
                     <input className = "notas"
+                    id = 'notas'
                     type = "text"
                     placeholder ="¿Algo fuera de lo normal?"
                     onChange = {z => cambiarNotas(z.target.value)}
+                    value = {notas}
                     />
                 </h2>
             </div>
             <button className = "newEventButton"
             type = "submit"
-            onClick = {() => onClick(selected, tipo, notas, new Date()), cambiarNotas, cambiarTipo}>
+            onClick = {() => onClick(selected, tipo, notas, new Date(), cambiarNotas, cambiarTipo)}>
                 {'Agregar'}
             </button>
         </div>
@@ -48,9 +50,9 @@ export default connect(
     }),
     dispatch => ({
         onClick(selected, tipo, notas, date, cn, ct){
+            ct(document.getElementById('tipos').value)
             dispatch(actions.addEvent(selected, tipo, notas, date))
             cn('')
-            ct('')
         }
     })
 )(NewEvent)

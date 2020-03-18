@@ -1,3 +1,10 @@
 .event{
     background-color: rebeccapurple;
+    width: 300px;
+}
+
+.deleteButton{
+    font-size: small;
+    background-color: red;
+    border-radius: 20px;
 }

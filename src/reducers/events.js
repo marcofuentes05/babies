@@ -1,5 +1,6 @@
 import {v4 as uuidv4} from 'uuid';
 import * as types from '../types/index.js';
+import filter from 'lodash/filter'
 
 export const delEvents = (state = [], action) => {
     switch(action.type){
@@ -14,10 +15,8 @@ export const delEvents = (state = [], action) => {
             ]
         }
         case types.ACTION_DELETED : {
-            return [
-                ...state.slice(0, action.index),
-                ...state.slice(action.index + 1)
-            ]
+            const lista = filter(state, (value) => value.id !== action.id)
+            return lista
         }
         default: {return state}
     }

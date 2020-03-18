@@ -1,15 +1,35 @@
 import React from 'react';
+import './styles.css'
+import {connect} from 'react-redux'
+import * as actions from './../../../actions/index.js'
 
+//DUMB
 const Event = (
-    { payload }
+    { payload ,
+    onDelete}
 ) => {
     return(
-        <div className ="event">
-            <h1>{payload.date}</h1>
-            <h1>{payload.tipo}</h1>
-            <h1>{payload.notes}</h1>
+        <div className="event" key={payload.key}>
+            <h1>{
+                payload.fecha.getDate() + '/' + (payload.fecha.getMonth())}
+                <button className="deleteButton" 
+                    onClick = {() => onDelete(payload.id)}>
+                    {'X'}
+                </button>
+            </h1>
+            <h2>{payload.tipo}</h2>
+            <h3>{payload.notas}</h3>
         </div>
     )
 }
 
-export default Event
+//SMART
+export default connect(
+    undefined,
+    dispatch => ({
+        onDelete(id){
+            console.log(id)
+            dispatch(actions.deleteEvent(id))
+        }
+    })
+)(Event)
