@@ -19,7 +19,7 @@ export const addBaby = (state = [], action) => {
     }
 }
 
-export const selectBaby = (state = 0, action) => {
+export const selectBaby = (state = null, action) => {
     switch(action.type){
         case types.BABY_CHANGED: {
             return action.newIndex

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React , { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actions from './../../actions/index.js'
 import './styles.css'
@@ -21,18 +21,21 @@ const Babies = ({ onSubmit }) => {
                 value={lastName}
                 onChange={z => changeLast(z.target.value)}
                 />
-            <button className = "inputButon"
-                type = "submit"
-                onClick = {() => onSubmit(name, lastName, changeName, changeLast)}
-                >
-                {'Agregar'}
-            </button>
+                <button className = "inputButon"
+                    type = "submit"
+                    onClick = {() => onSubmit(name, lastName, changeName, changeLast)}
+                    >
+                    {'Agregar'}
+                </button>
+            {/* <FilterLink filter = {'EVENTS'} className="inputButton">
+                Prueba
+            </FilterLink> */}
         </div>
     )
 }
 
 
-// SMART COMPONENT
+// SMART COMPONENT  
 export default connect (
     undefined,
     dispatch => ({

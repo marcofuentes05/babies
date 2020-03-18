@@ -4,13 +4,12 @@ import * as types from '../types/index.js';
 export const delEvents = (state = [], action) => {
     switch(action.type){
         case types.EVENT_ADDED : {
-            let d = new Date();
             return [...state, {
                     id: uuidv4(),
                     babyIndex : action.babyIndex,
                     tipo: action.tipo,
                     notas : action.notes,
-                    fecha : d.getDate()
+                    fecha : action.date 
                }
             ]
         }

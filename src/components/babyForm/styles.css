@@ -6,10 +6,11 @@
 
 .inputButon{
     margin: 50px;
-    padding: 25px;
-    background-color: steelblue;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: green;
     border-radius: 10px;
-    
+    font-size: 30px;
 }
 
 .main{
