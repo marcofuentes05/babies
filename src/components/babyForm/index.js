@@ -9,6 +9,7 @@ const Babies = ({ onSubmit }) => {
     const [lastName, changeLast] = useState('');
     return(
         <div className = "main">
+            <h1>{'Agrega un nuevo bebé'}</h1>
             <input className = "textInput"
                 type = "text"
                 placeholder = "Nombre"
@@ -27,9 +28,6 @@ const Babies = ({ onSubmit }) => {
                     >
                     {'Agregar'}
                 </button>
-            {/* <FilterLink filter = {'EVENTS'} className="inputButton">
-                Prueba
-            </FilterLink> */}
         </div>
     )
 }
@@ -40,7 +38,7 @@ export default connect (
     undefined,
     dispatch => ({
         onSubmit(name, lastName, cname, clast){
-            if (name !== '' && lastName !== ''){
+            if (name !== '' && lastName !== ''  ){
                 dispatch(actions.addBaby(name,lastName))
                 cname('')
                 clast('')

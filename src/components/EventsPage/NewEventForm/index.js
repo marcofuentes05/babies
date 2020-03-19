@@ -46,13 +46,17 @@ const NewEvent = ({selected, onClick}) => {
 
 export default connect(
     state => ({
-        selected : state.selectedBaby
+        selected : state.selectedBaby,
     }),
     dispatch => ({
         onClick(selected, tipo, notas, date, cn, ct){
-            ct(document.getElementById('tipos').value)
-            dispatch(actions.addEvent(selected, tipo, notas, date))
-            cn('')
+            if (selected === null){
+                alert('¡No tenés bebes todavía!')
+            }else{
+                ct(document.getElementById('tipos').value)
+                dispatch(actions.addEvent(selected, tipo, notas, date))
+                cn('')
+            }
         }
     })
 )(NewEvent)

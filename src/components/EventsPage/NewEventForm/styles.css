@@ -1,7 +1,8 @@
 .newEventForm{
-    background-color: blueviolet;
+    background-color: lightcoral;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 30px;
     align-self: center;
-    margin: 20px
+    margin: 20px;
+    align-self: flex-start
 }

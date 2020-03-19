@@ -10,15 +10,19 @@ const Event = (
 ) => {
     return(
         <div className="event" key={payload.key}>
-            <h1>{
-                payload.fecha.getDate() + '/' + (payload.fecha.getMonth())}
+            <div className = "header">
+            <h1>{ payload.fecha.getDate() + '/' + (parseInt(payload.fecha.getMonth())+1) + '/' + parseInt(payload.fecha.getYear() + 1900)  }
+            </h1>            
                 <button className="deleteButton" 
                     onClick = {() => onDelete(payload.id)}>
                     {'X'}
                 </button>
-            </h1>
-            <h2>{payload.tipo}</h2>
-            <h3>{payload.notas}</h3>
+            </div>
+            <div className="element">
+                <h3>{payload.fecha.getHours() + ':' + payload.fecha.getMinutes()}</h3>
+                <h3>{payload.tipo}</h3>
+                <h3>{payload.notas}</h3>
+            </div>
         </div>
     )
 }
